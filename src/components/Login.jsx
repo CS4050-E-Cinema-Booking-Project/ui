@@ -1,10 +1,10 @@
 import React from "react";
+import LoginForm from "./LoginForm";
+import '../style/Login.css'
 
 const Login = () => {
   return (
-    <div>
-        <h1>Login</h1>
-    </div>
+    <LoginForm />
   );
 };
 

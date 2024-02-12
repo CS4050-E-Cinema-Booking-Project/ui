@@ -5,7 +5,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Admin from "./components/Admin";
+import AdminMovie from "./components/AdminMovie";
+import AdminUser from "./components/AdminUser";
+import AdminPromo from "./components/AdminPromo";
 import User from "./components/User";
 import Navbar from "./components/Navbar";
 
@@ -20,7 +22,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user" element={<User />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-movie" element={<AdminMovie />} />
+          <Route path="/admin-user" element={<AdminUser />} />
+          <Route path="/admin-promo" element={<AdminPromo />} />
         </Routes>
       </ChakraProvider>
     </BrowserRouter>

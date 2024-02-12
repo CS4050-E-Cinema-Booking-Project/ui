@@ -1,0 +1,11 @@
+.colRight{
+	margin: 0;
+	content: "";
+	clear: both;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 92%;
+    height:auto;
+    float: right;
+  }

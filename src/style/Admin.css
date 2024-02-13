@@ -5,7 +5,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 92%;
+	width: 90%;
     height:auto;
     float: right;
   }
+
+  @media screen and (max-width: 810px) {
+	.colRight {
+	width: 80%;
+}
+}

@@ -1,0 +1,71 @@
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    border: 3px solid black;
+    margin: 2vh 0vh 2vh 2vh;
+    height: 85vh;
+    width: 20%;
+    float: left;
+    position: fixed;
+}
+
+.circle {
+    border: 3px solid black;
+    width: 20vh;
+    height: 20vh;
+    margin: 30px 0 15px 80px;
+    border-radius: 100px;
+}
+
+.user-desc {
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.edit-button {
+    border-radius: 12px;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    background-color: blue;
+    margin: 0 0 0 95px;
+}
+
+.edit-button:hover {
+    background-color: rgb(67, 67, 178);
+}
+
+.order-container {
+    margin: 3vh 0 5vh 50vh;
+
+}
+
+.upcoming {
+    width: 80%;
+    position: relative;
+}
+
+.upcoming-box {
+    border: 3px solid black;
+    display: flex;
+    padding: 20vh 80vh 60vh 70vh;
+}
+
+.past {
+    width: 80%;
+}
+
+.past-box {
+    border: 3px solid black;
+    display: flex;
+    padding: 20vh 80vh 60vh 70vh;
+}
+
+.order-title {
+    text-decoration: none;
+    font-size: 25px;
+    float: left;
+}
+

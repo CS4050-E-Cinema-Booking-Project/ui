@@ -1,161 +1,89 @@
-import React, { useEffect, useState } from "react";
-import {
-    Box,
-    Button,
-    Flex,
-    Input,
-    InputGroup,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    Stack,
-    Text,
-    useDisclosure
-} from "@chakra-ui/react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: 'http://localhost:8000'
+})
 
 const MoviesContext = React.createContext({
   movies: [], fetchMovies: () => {}
 })
 
+
 export default function Movies() {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [formData, setFormData] = useState({
+      item: '',
+      description: ''
+    });
+
     const fetchMovies = async () => {
-      const response = await fetch("http://localhost:8000/movie")
-      const movies = await response.json()
-      setMovies(movies.data)
+      const response = await api.get('/movies/');
+      setMovies(response.data)
     }
+
     useEffect(() => {
       fetchMovies()
-    }, [])
-    return (
-        <MoviesContext.Provider value={{movies, fetchMovies}}>
-          <AddMovie />
-          <Stack spacing={5}>
-            {
-              movies.map((movie) => (
-                <MovieHelper item={movie.item} id={movie.id} fetchMovies={fetchMovies} />
-              ))
-            }
-          </Stack>
-        </MoviesContext.Provider>
-      )
-  }
+    }, []);
 
-function AddMovie() {
-    const [item, setItem] = React.useState("")
-    const {movies, fetchMovies} = React.useContext(MoviesContext)
-    
-    const handleInput = event  => {
-        setItem(event.target.value)
-      }
-      
-      const handleSubmit = (event) => {
-        const newMovie = {
-          "id": movies.length + 1,
-          "item": item
-        }
-      
-        fetch("http://localhost:8000/movie", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newMovie)
-        }).then(fetchMovies)
-      }
+    const handleInputChange = (event) => {
+      const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+      setFormData({
+        ...formData,
+        [event.target.name]: value,
+      });
+    };
 
-    return (
-    <form onSubmit={handleSubmit}>
-        <InputGroup size="md">
-        <Input
-            pr="4.5rem"
-            type="text"
-            placeholder="Add a Movie"
-            aria-label="Add a Movie"
-            onChange={handleInput}
-        />
-        </InputGroup>
-    </form>
-    )
-}
-
-function UpdateMovie({item, id}) {
-    const {isOpen, onOpen, onClose} = useDisclosure()
-    const [movie, setMovie] = useState(item)
-    const {fetchMovies} = React.useContext(MoviesContext)
-
-    const updateMovie = async () => {
-        await fetch(`http://localhost:8000/movie/${id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ item: movie })
-        })
-        onClose()
-        await fetchMovies()
-      }
-    
-      return (
-        <>
-          <Button h="1.5rem" size="sm" onClick={onOpen}>Update Movie</Button>
-          <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay/>
-            <ModalContent>
-              <ModalHeader>Update Movie</ModalHeader>
-              <ModalCloseButton/>
-              <ModalBody>
-                <InputGroup size="md">
-                  <Input
-                    pr="4.5rem"
-                    type="text"
-                    placeholder="Add a Movie"
-                    aria-label="Add a Movie"
-                    value={movie}
-                    onChange={event => setMovie(event.target.value)}
-                  />
-                </InputGroup>
-              </ModalBody>
-      
-              <ModalFooter>
-                <Button h="1.5rem" size="sm" onClick={updateMovie}>Update Movie</Button>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
-        </>
-      )
-  }
-
-function MovieHelper({item, id, fetchMovies}) {
-    return (
-      <Box p={1} shadow="sm">
-        <Flex justify="space-between">
-          <Text mt={4} as="div">
-            {item}
-            <Flex align="end">
-              <UpdateMovie item={item} id={id} fetchMovies={fetchMovies}/>
-              <DeleteMovie id={id} fetchMovies={fetchMovies}/>  {/* new */}
-            </Flex>
-          </Text>
-        </Flex>
-      </Box>
-    )
-  }
-
-
-function DeleteMovie({id}) {
-    const {fetchMovies} = React.useContext(MoviesContext)
-  
-    const deleteMovie = async () => {
-      await fetch(`http://localhost:8000/movie/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: { "id": id }
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      await api.post('/movies/',formData);
+      fetchMovies();
+      setFormData({
+        item: '',
+        description: ''
       })
-      await fetchMovies()
+      
     }
-  
+ 
     return (
-      <Button h="1.5rem" size="sm" onClick={deleteMovie}>Delete Movie</Button>
-    )
-}
+        <div className='container'>
+          <form onSubmit={handleFormSubmit}>
+            <div className="mb-3">
+              <label htmlFor="item" className='form-label'>
+                Movie Title
+              </label>
+              <br></br>
+              <input type='text' className='form-control' id='item' name='item' onChange={handleInputChange} value={formData.item}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="description" className='form-label'>
+                Description
+              </label>
+              <br></br>
+              <input type='text' className='form-control' id='description' name='description' onChange={handleInputChange} value={formData.description}/>
+            </div>
+              <button type='submit' className='btn btn-primary'>
+                Add Movie
+              </button>
+          </form>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Movie Title</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {movies.map((movie) => {
+                <tr key={movie.id}>
+                  <td>{movie.item}</td>
+                  <td>{movie.description}</td>
+                </tr>
+              })}
+            </tbody>
+          </table>
+          
+        </div>
+      )
+  }

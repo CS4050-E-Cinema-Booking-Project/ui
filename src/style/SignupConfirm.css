@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+.verify-title {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 28px;
+    padding: 130px 0 20px 0;
+}
+
+.verify-box {
+    margin: auto;
+    width: 50%;
+    width: 300px;
+}
+
+.verify-button {
+    margin: 15px;
+    padding: 10px;
+    width: 90px;
+    border-radius: 15px;
+    background-color: blue;
+    color: white;
+}
+
+.verify-button:hover {
+    background-color: rgb(64, 64, 188);
+}
+
+.resend {
+    color: blue;
+    padding: 6px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.resend:hover {
+    background-color: white;
+    color: blue;
+}
+
+

@@ -1,0 +1,23 @@
+.age-select-container {
+
+}
+
+.age-select-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.age-select-individual {
+    max-width: 30%;
+    margin: 3rem;
+
+}
+
+.proceed-button {
+    border: 1px solid white;
+    padding: 5px;
+    margin: 3rem;
+    max-width: fit-content;
+    max-height: 2.5rem;
+}

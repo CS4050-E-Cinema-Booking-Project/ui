@@ -1,0 +1,34 @@
+.purchase-tickets-page {
+    background-color: #415176;
+    height: 170vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container {
+    flex-basis: 60%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.seat-select-form {
+    max-width: 8%;
+}
+
+.cover-image-container {
+    margin: 2%;
+    min-width: 5%;
+    flex-basis: 40%;
+}
+
+.ticket-count-form-container {
+    width: 100%;
+    min-width: 750px;
+    display: block;
+    margin-left: 46%;
+}
+
+.ticket-age-container {
+
+}

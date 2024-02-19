@@ -1,43 +1,4 @@
 
-    .card {
-        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-    }
-    
-    .form-control, .dataTable-input {
-        display: block;
-        width: 100%;
-        padding: 0.875rem 1.125rem;
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1;
-        color: #69707a;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #c5ccd6;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border-radius: 0.35rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-    
-    .nav-borders .nav-link.active {
-        color: #0061f2;
-        border-bottom-color: #0061f2;
-    }
-    .nav-borders .nav-link {
-        color: #69707a;
-        border-bottom-width: 0.125rem;
-        border-bottom-style: solid;
-        border-bottom-color: transparent;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
     .card-title {
         padding: 10px;
         margin-bottom: 0;
@@ -50,8 +11,8 @@
 
     .name-card {
         width: 200px;
-        margin-right: 0;
         float: left;
+        margin: 10px 0 10px 20px;
     }
 
     .name-title {
@@ -59,18 +20,50 @@
     }
     
     .name-form {
-        width: 170px;
+        width: 100%;
         display: block;
     }
 
     .settings-form {
-        width: 40%;
+        width: 70%;
         display: block;
     }
 
     .save-button {
         color: white;
         background-color: #0061f2;
-        padding: 0;
-        width: 200px;
+        padding: 5px;
+        width: 150px;
+        margin: 10px;
+    }
+
+    .save-button:hover {
+        background-color: #2358a7;
+    }
+
+    .cancel-button {
+        border: 2px solid #0061f2;
+        border-radius: 5px;
+        padding: 5px;
+        color: #0061f2;
+        font-weight: bold;
+        margin: 0 15px 0 20px;
+    }
+
+    .cancel-button:hover {
+        color: white;
+        background-color: #0061f2;
+    }
+
+    .settings-card {
+        width: 100%;
+        float: left;
+        margin: 10px 0 10px 20px;
+    }
+
+    .settings-box {
+        border: 5px solid rgba(33, 40, 50, 0.125);
+        border-radius: 5px;
+        width: 60%;
+        margin: 80px auto 80px auto;
     }

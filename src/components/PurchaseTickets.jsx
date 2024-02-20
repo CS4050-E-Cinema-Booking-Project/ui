@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SelectSeatAge from "./SelectSeatAge";
 import SelectSeats from "./SelectSeats";
 import '../style/PurchaseTickets.css';
+import SelectSeatNumberForm from "./SelectSeatNumberForm";
 
 const PurchaseTickets = () => {
 
@@ -22,7 +23,6 @@ const PurchaseTickets = () => {
   const seatSelectFormHandler = (event) => {
     // setSeatAgeSelect(null);
     document.getElementById('proceed1').style.display = 'none';
-    console.log("NUM OF SEATS: " + seatCount);
     event.preventDefault();
     event.preventDefault();
     var ageSelectComponent = <SelectSeatAge seatCount={seatCount} displaySeatSelect={showSelectPopup} />;
@@ -37,24 +37,10 @@ const PurchaseTickets = () => {
       </div>
 
         <div className="form-container">
-          <div className="ticket-count-form-container">
-          <form className="seat-select-form" onSubmit={seatSelectFormHandler}>
-            <label for="seatCount">Number of Seats:</label>
-            <select type="number" id="seatCount" onChange={seatSelectChangeHandler}>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
-            <button id="proceed1" type="submit">Proceed</button>
-          </form>
-        </div>
 
-        <div className="ticket-age-container">
+          <SelectSeatNumberForm seatSelectChangeHandler={seatSelectChangeHandler} seatSelectFormHandler={seatSelectFormHandler} />
+
           {seatAgeSelect}
-        </div>
 
         {seatPlacementSelect}
 

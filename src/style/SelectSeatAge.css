@@ -1,23 +1,59 @@
 .age-select-container {
-
+    margin-left: 30%;
 }
 
 .age-select-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
 .age-select-individual {
     max-width: 30%;
-    margin: 3rem;
-
+    margin: 0.5rem;
+    margin-left: 3rem;
 }
 
 .proceed-button {
     border: 1px solid white;
     padding: 5px;
-    margin: 3rem;
+    margin-top: 0.6rem;
+    margin-left: 3.8rem;
     max-width: fit-content;
     max-height: 2.5rem;
 }
+
+
+/* Styling the <select> element */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    background-color: #f3f3f3;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  select:hover {
+    background-color: #cdd0d2;
+  }
+  
+  /* Styling the <option> elements */
+  option {
+    padding: 10px 15px;
+    background-color: #f3f3f3;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  option:hover {
+    background-color: #eaeaea;
+  }
+  

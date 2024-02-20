@@ -4,7 +4,7 @@
 
 .flex-child {
     border: 3px solid rgba(33, 40, 50, 0.125);
-    margin: 2vh 0vh 2vh 2vh;
+    margin: 2vh 0vh 2vh 3vh;
     height: 85vh;
     width: 20%;
     float: left;
@@ -15,7 +15,6 @@
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
-
 }
 
 .user-desc {
@@ -41,13 +40,11 @@
 }
 
 .upcoming {
-    width: 80%;
+    width: 1100px;
 }
 
 .upcoming-box {
     border: 3px solid rgba(33, 40, 50, 0.125);
-    display: flex;
-    padding: 20vh 80vh 60vh 70vh;
 }
 
 .movie-ticket {
@@ -55,20 +52,23 @@
 }
 
 .past {
-    width: 80%;
+    width: 1100px;
 }
 
 .past-box {
     border: 3px solid rgba(33, 40, 50, 0.125);
-    display: flex;
-    padding: 20vh 80vh 60vh 70vh;
+
 }
 
 .order-title {
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border: 1px solid rgba(33, 40, 50, 0.125);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
     text-decoration: none;
-    font-size: 25px;
-    float: left;
-    margin: 15px 0px 5px 0px;
 }
 
 .profile-picture {

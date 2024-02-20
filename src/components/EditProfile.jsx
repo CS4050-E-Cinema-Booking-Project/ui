@@ -89,7 +89,7 @@ const EditProfile = () => {
             </div>
           </form>
           <Link to="/user" className="cancel-button">Cancel</Link>
-          <button class="save-button" type="button">Save changes</button>
+          <button class="edit-button" type="button">Save changes</button>
         </div>
       </div>
     </div>

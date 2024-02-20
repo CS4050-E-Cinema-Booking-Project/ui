@@ -3,7 +3,7 @@
 }
 
 .flex-child {
-    border: 3px solid black;
+    border: 3px solid rgba(33, 40, 50, 0.125);
     margin: 2vh 0vh 2vh 2vh;
     height: 85vh;
     width: 20%;
@@ -11,29 +11,27 @@
     position: fixed;
 }
 
-.circle {
-    border: 3px solid black;
-    width: 20vh;
-    height: 20vh;
-    margin: 30px 0 15px 80px;
-    border-radius: 100px;
+.user-name {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
 .user-desc {
     text-align: center;
-    margin: 0 0 30px 0;
+    margin: 20px 20px 35px 20px;
 }
 
-.edit-button {
+.user-button {
     border-radius: 12px;
     font-weight: bold;
     padding: 10px;
     color: white;
-    background-color: blue;
-    margin: 0 0 0 95px;
+    background-color: #0061f2;
 }
 
-.edit-button:hover {
+.user-button:hover {
     background-color: rgb(67, 67, 178);
 }
 
@@ -44,13 +42,16 @@
 
 .upcoming {
     width: 80%;
-    position: relative;
 }
 
 .upcoming-box {
-    border: 3px solid black;
+    border: 3px solid rgba(33, 40, 50, 0.125);
     display: flex;
     padding: 20vh 80vh 60vh 70vh;
+}
+
+.movie-ticket {
+    border: 3px solid rgba(33, 40, 50, 0.125);
 }
 
 .past {
@@ -58,7 +59,7 @@
 }
 
 .past-box {
-    border: 3px solid black;
+    border: 3px solid rgba(33, 40, 50, 0.125);
     display: flex;
     padding: 20vh 80vh 60vh 70vh;
 }
@@ -67,5 +68,14 @@
     text-decoration: none;
     font-size: 25px;
     float: left;
+    margin: 15px 0px 5px 0px;
+}
+
+.profile-picture {
+    border: 3px solid rgba(33, 40, 50, 0.125);
+    width: 20vh;
+    height: 20vh;
+    margin: 30px 0 15px 80px;
+    border-radius: 100px;
 }
 

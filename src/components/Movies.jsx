@@ -16,6 +16,8 @@ import {
     Text,
     useDisclosure
 } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
 
 const MoviesContext = React.createContext({
   movies: [], fetchMovies: () => {}
@@ -135,12 +137,21 @@ function MovieHelper({item, id, fetchMovies}) {
             <Flex align="end">
               <UpdateMovie item={item} id={id} fetchMovies={fetchMovies}/>
               <DeleteMovie id={id} fetchMovies={fetchMovies}/>  {/* new */}
+              <BookMovie id={id} />
             </Flex>
           </Text>
         </Flex>
       </Box>
     )
   }
+
+function BookMovie({id}) {
+
+  return (
+    <NavLink to={`/purchase-tickets/${id}`}>Book</NavLink>
+  );
+
+}
 
 
 function DeleteMovie({id}) {

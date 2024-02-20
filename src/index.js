@@ -29,9 +29,9 @@ function App() {
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/user" element={<User />} />
           <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/purchase-tickets" element={<PurchaseTickets />} />
+          <Route path="/purchase-tickets/:id" element={<PurchaseTickets />} />
           <Route path="/purchase-summary" element={<PurchaseSummary />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/" element={<Checkout />} />
           <Route path="/checkout-confirm" element={<CheckoutConfirm />} />
           <Route path="/admin-movie" element={<AdminMovie />} />
           <Route path="/admin-user" element={<AdminUser />} />

@@ -12,6 +12,11 @@
     display: flex;
   }
 
+  .movie-title {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
   .left {
     padding: 10px;
   }
@@ -19,6 +24,7 @@
   .poster {
     height: 200px;
     border-radius: 10px;
+    float: left;
   }
 
   .right {

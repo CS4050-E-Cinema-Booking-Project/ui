@@ -32,6 +32,7 @@ const User = () => {
           <h1 className="order-title">Past Orders</h1>
           <div className="past-box">
             <MovieBox image={Troy} title={"Troy"} date={"Sunday"} time={"8PM"} tickets={"1"} seats={"B4"} />
+            <MovieBox image={Inception} title={"Inception"} date={"Saturday"} time={"3PM"} tickets={"3"} seats={"A4 B6 C2"} />
           </div>
         </div>
       </div>

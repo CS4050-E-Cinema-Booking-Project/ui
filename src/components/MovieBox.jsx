@@ -9,7 +9,9 @@ function MovieBox({ image, title, date, time, tickets, seats }) {
                     {image && <img src={image} alt={title} className="poster"/>}
                 </div>
                 <div className="right">
-                    <h2>{title}</h2>
+                    <div className='movie-title'>
+                        <h2>{title}</h2>
+                    </div>
                     <h3>{date}</h3>
                     <h3>{time}</h3>
                     <h3>{tickets}</h3>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Movies from "./Movies";
 import MovieCard from "./MovieCard";
@@ -35,39 +35,37 @@ const Home = () => {
   // useState that determines if filter is open or not.
   const [isOpen, setIsOpen] = React.useState(false);
   const [movies, setMovies] = useState([]);
-  
+
   const api = axios.create({
     baseURL: 'http://localhost:8000'
-  })
+  });
 
   const filterDisplayChange = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
-  const fetchMovies = async () => {
-    const response = await api.get('/movies/');
-    setMovies(response.data)
-  }
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await api.get('/movies/');
+        setMovies(response.data);
+      } catch (error) {
+        console.error('Error fetching movies:', error)
+      }
+    };
+    fetchMovies();
+  }, []);
 
-  fetchMovies();
-  
   return (
     <div className="home-page">
-
-        <Header filterDisplayChange={filterDisplayChange} />
-
+      <Header filterDisplayChange={filterDisplayChange} />
       <div className="movie-cards-container">
-
-          {movies.map((movie) => (
-          <MovieCard img={movie.image}  />
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} img={movie.image} />
         ))}
-
       </div>
-
       <FilterMovies isOpen={isOpen} filterDisplayChange={filterDisplayChange} />
-
     </div>
-
   );
 };
 

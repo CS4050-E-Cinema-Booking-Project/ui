@@ -1,14 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../style/Checkout.css";
+import "../style/EditProfile.css";
 
-const Checkout = () => {
+const EditProfile = () => {
   return (
     <div>
       <div className="settings-box">
         <div className="card-body">
-          <div class="card-title">Billing Address</div>
-          <button className="saved-cards-button" type="button">Saved Cards</button>
+          <div class="card-title">Account Details</div>
+          <form>
+            <div>
+              <div className="name-card">
+                <label className="name-title">First Name</label>
+                <input className="name-form" type="text"/>
+              </div>
+              <div className="name-card">
+                <label className="name-title">Last Name</label>
+                <input className="name-form" type="text"/>
+              </div>
+            </div>
+            <div>
+              <div className="settings-card">
+                <label className="settings-title">Phone Number</label>
+                <input className="settings-form" type="tel" placeholder="(###)-###-####" />
+              </div>
+            </div>
+            <div className="settings-card">
+              <label className="settings-title">Email Address</label>
+              <input className="settings-form" type="email"/>
+            </div>
+          </form>
+        </div>
+        <div className="card-body">
+          <div class="card-title">Home Address</div>
           <form>
             <div>
               <div className="settings-card">
@@ -64,12 +88,12 @@ const Checkout = () => {
               </div>
             </div>
           </form>
-          <Link to="/" className="cancel-button">Cancel</Link>
-          <button class="confirm-button" type="button">Confirm Purchase</button>
+          <Link to="/user" className="leave-button">Cancel</Link>
+          <button class="edit-button" type="button">Save changes</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Checkout;
+export default EditProfile;

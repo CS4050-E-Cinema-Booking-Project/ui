@@ -1,0 +1,13 @@
+.seat-select-form {
+    margin: 5%;
+    margin-left: 34%;
+    min-width: fit-content;
+}
+
+#proceed1 {
+    margin: 0.4rem;
+}
+
+#proceed1:hover {
+    background-color: rgb(57, 62, 66);
+}

@@ -10,6 +10,7 @@ import AdminMovie from "./components/AdminMovie";
 import AdminUser from "./components/AdminUser";
 import AdminPromo from "./components/AdminPromo";
 import User from "./components/User";
+import EditProfile from "./components/EditProfile";
 import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
 import CheckoutConfirm from "./components/CheckoutConfirm";
@@ -27,9 +28,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/user" element={<User />} />
-          <Route path="/purchase-tickets" element={<PurchaseTickets />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/purchase-tickets/:id" element={<PurchaseTickets />} />
           <Route path="/purchase-summary" element={<PurchaseSummary />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/" element={<Checkout />} />
           <Route path="/checkout-confirm" element={<CheckoutConfirm />} />
           <Route path="/admin-movie" element={<AdminMovie />} />
           <Route path="/admin-user" element={<AdminUser />} />

@@ -17,6 +17,8 @@ import {
   Text,
   useDisclosure
 } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
 
 const api = axios.create({
   baseURL: 'http://localhost:8000'

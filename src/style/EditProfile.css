@@ -1,0 +1,81 @@
+
+    .card-title {
+        padding: 10px;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border: 1px solid rgba(33, 40, 50, 0.125);
+        font-size: 20px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .name-card {
+        width: 200px;
+        float: left;
+        margin: 10px 0 0px 20px;
+    }
+
+    .name-title {
+        display: block;
+        float: left;
+    }
+    
+    .name-form {
+        width: 100%;
+        display: block;
+        margin: 0 0 10px 0;
+    }
+
+    .settings-form {
+        width: 70%;
+        display: block;
+        margin: 30px 0 0 0;
+    }
+
+    .edit-button {
+        color: white;
+        border-radius: 10px;
+        background-color: #0061f2;
+        padding: 5px;
+        width: 150px;
+        margin: 0 15px 15px 20px;
+        display: block;
+    }
+
+    .edit-button:hover {
+        background-color: #2358a7;
+    }
+
+    .leave-button {
+        border: 2px solid #0061f2;
+        border-radius: 12px;
+        padding: 4px;
+        color: #0061f2;
+        font-weight: bold;
+        margin: 0 15px 10px 20px;
+        width: 150px;
+        float: left;
+    }
+
+    .leave-button:hover {
+        color: white;
+        background-color: #0061f2;
+    }
+
+    .settings-card {
+        width: 100%;
+        float: left;
+        margin: 10px 0 10px 20px;
+    }
+
+    .settings-box {
+        border: 5px solid rgba(33, 40, 50, 0.125);
+        border-radius: 5px;
+        width: 60%;
+        margin: 80px auto 90px auto;
+    }
+
+    .settings-title {
+        float: left;
+        display: block;
+    }

@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header";
 import Movies from "./Movies";
 import MovieCard from "./MovieCard";
 import "../style/Home.css";
 import FilterMovies from "./FilterMovies";
+
+import axios from 'axios'
 
 
 const Home = () => {
@@ -32,11 +34,23 @@ const Home = () => {
 
   // useState that determines if filter is open or not.
   const [isOpen, setIsOpen] = React.useState(false);
+  const [movies, setMovies] = useState([]);
+  
+  const api = axios.create({
+    baseURL: 'http://localhost:8000'
+  })
 
   const filterDisplayChange = () => {
     setIsOpen(!isOpen);
   }
 
+  const fetchMovies = async () => {
+    const response = await api.get('/movies/');
+    setMovies(response.data)
+  }
+
+  fetchMovies();
+  
   return (
     <div className="home-page">
 
@@ -44,8 +58,8 @@ const Home = () => {
 
       <div className="movie-cards-container">
 
-          {movieImgArray.map((img, index) => (
-          <MovieCard key={index} img={img} />
+          {movies.map((movie) => (
+          <MovieCard img={movie.image}  />
         ))}
 
       </div>

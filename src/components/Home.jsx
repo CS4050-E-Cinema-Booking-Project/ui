@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Movies from "./Movies";
 import MovieCard from "./MovieCard";
+import SearchBar from "./SearchBar";
 import "../style/Home.css";
 import FilterMovies from "./FilterMovies";
 
@@ -41,6 +42,7 @@ const Home = () => {
     <div className="home-page">
 
         <Header filterDisplayChange={filterDisplayChange} />
+        <SearchBar />
 
       <div className="movie-cards-container">
 

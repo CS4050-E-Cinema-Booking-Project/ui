@@ -88,7 +88,7 @@ const EditProfile = () => {
               </div>
             </div>
           </form>
-          <Link to="/user" className="cancel-button">Cancel</Link>
+          <Link to="/user" className="leave-button">Cancel</Link>
           <button class="edit-button" type="button">Save changes</button>
         </div>
       </div>

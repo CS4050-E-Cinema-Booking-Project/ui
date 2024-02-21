@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading, Flex, Divider } from "@chakra-ui/react";
 
-const Header = () => {
+const Header = ({filterDisplayChange}) => {
   return (
     <Flex
       as="nav"
@@ -15,6 +15,7 @@ const Header = () => {
         <Heading as="h1" size="sm">Movies</Heading>
         <Divider />
       </Flex>
+      <button onClick={filterDisplayChange}>Filter</button>
     </Flex>
   );
 };

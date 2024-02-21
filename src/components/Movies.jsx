@@ -85,14 +85,6 @@ export default function Movies() {
     )
   }
 
-  function BookMovie({id}) {
-
-    return (
-      <NavLink to={`/purchase-tickets/${id}`}>Book</NavLink>
-    );
-  
-  }
-
   function UpdateMovie({id}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const [title, setTitle] = useState(id)

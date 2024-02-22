@@ -63,7 +63,7 @@ const Home = () => {
         <SearchBar />
       <div className="movie-cards-container">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} img={movie.image} />
+          <MovieCard key={movie.id} img={movie.image} id={movie.id} />
         ))}
       </div>
       <FilterMovies isOpen={isOpen} filterDisplayChange={filterDisplayChange} />

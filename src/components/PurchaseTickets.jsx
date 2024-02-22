@@ -1,10 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SelectSeatAge from "./SelectSeatAge";
 import SelectSeats from "./SelectSeats";
 import '../style/PurchaseTickets.css';
 import SelectSeatNumberForm from "./SelectSeatNumberForm";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const PurchaseTickets = () => {
+
+  const {id} = useParams();
+
+  const [selectedMovie, setSelectedMovie] = useState([]);
+
+  const api = axios.create({
+    baseURL: 'http://localhost:8000'
+  });
+
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const response = await api.get('/movies/');
+        for (var i = 0; i < response.data.length; i++) {
+          if (response.data[i].id == id) {
+              setSelectedMovie(response.data[i]);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching movies:', error)
+      }
+    };
+    fetchMovie();
+  }, []);
 
   const [seatAgeSelect, setSeatAgeSelect] = useState(null);
   const [seatCount, setSeatCount] = useState(1);
@@ -33,7 +59,7 @@ const PurchaseTickets = () => {
     <div className="purchase-tickets-page">
 
       <div className="cover-image-container">
-        <img className="movie-cover-image" src='https://www.dreamworks.com/storage/movies/shrek/shrek-he-digital.png' />
+        <img className="movie-cover-image" src={selectedMovie.image} />
       </div>
 
         <div className="form-container">

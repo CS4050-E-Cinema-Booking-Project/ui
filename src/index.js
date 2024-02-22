@@ -16,6 +16,7 @@ import Checkout from "./components/Checkout";
 import CheckoutConfirm from "./components/CheckoutConfirm";
 import PurchaseTickets from "./components/PurchaseTickets";
 import PurchaseSummary from "./components/PurchaseSummary";
+import MovieAboutPage from "./components/MovieAboutPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/admin-movie" element={<AdminMovie />} />
           <Route path="/admin-user" element={<AdminUser />} />
           <Route path="/admin-promo" element={<AdminPromo />} />
+          <Route path="movie-info/:id" element={<MovieAboutPage />} />
         </Routes>
       </ChakraProvider>
     </BrowserRouter>

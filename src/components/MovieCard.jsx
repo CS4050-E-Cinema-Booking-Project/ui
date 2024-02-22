@@ -2,16 +2,16 @@ import React from "react";
 import '../style/MovieCard.css';
 import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({ img }) => {
+const MovieCard = ({ img, id }) => {
     const navigate = useNavigate();
 
     const cardClickHandler = () => {
-        navigate('/movie-info');
+        navigate(`/movie-info/${id}`);
     }
 
     const ticketClickHandler = (event) => {
         event.stopPropagation();
-        navigate('/purchase-tickets');
+        navigate(`/purchase-tickets/${id}`);
     }
 
     return (

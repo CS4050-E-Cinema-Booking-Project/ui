@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
+import '../style/SearchBar.css';
 
 const SearchBar = () => {
 
     const [query, setQuery] = useState("")
 
-    function search(e){
+    let search = (e) => {
         e.preventDefault()
         setQuery(e.target.value)
-
     }
 
     return (
-        <div className="w-full max-w-xl flex mx-auto p-20 text-xl">
+        <div className="searchbar-container">
             <input
                 type="text"
-                className="w-full placeholder-gray-400 text-gray-900 p-4"
-                placeholder="Search"
+                className="searchbar-form"
+                placeholder="Search movies..."
                 onChange={search}
                 value={query}
             />
-            <button className="bg-white p-4">🔍</button>
+            <button className="searchbar-button">🔍</button>
         </div>
     );
 };

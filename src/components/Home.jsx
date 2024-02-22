@@ -45,6 +45,15 @@ const Home = () => {
     setIsOpen(!isOpen);
   };
 
+  const filteredMovies = movie.filter((e) => {
+    if (props.input === "") {
+      return e;
+    }
+    else {
+      return e.text.toLowerCase().includes(props.input)
+    }
+  })
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -57,6 +66,8 @@ const Home = () => {
     fetchMovies();
   }, []);
 
+  
+
   return (
     <div className="home-page">
       <Header filterDisplayChange={filterDisplayChange} />
@@ -65,6 +76,9 @@ const Home = () => {
         {movies.map((movie) => (
           <MovieCard key={movie.id} img={movie.image} />
         ))}
+        {filteredMovies.map((movie) => {
+          <MovieCard key={movie.title} img={movie.image} />
+        })}
       </div>
       <FilterMovies isOpen={isOpen} filterDisplayChange={filterDisplayChange} />
     </div>

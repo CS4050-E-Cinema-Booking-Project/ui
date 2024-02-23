@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Movies from "./Movies";
 import MovieCard from "./MovieCard";
-import SearchBar from "./SearchBar";
 import "../style/Home.css";
 import FilterMovies from "./FilterMovies";
 
@@ -36,6 +35,12 @@ const Home = () => {
   // useState that determines if filter is open or not.
   const [isOpen, setIsOpen] = React.useState(false);
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("")
+
+  let search = (e) => {
+    e.preventDefault()
+    setQuery(e.target.value)
+  }
 
   const api = axios.create({
     baseURL: 'http://localhost:8000'
@@ -44,6 +49,14 @@ const Home = () => {
   const filterDisplayChange = () => {
     setIsOpen(!isOpen);
   };
+
+  const filteredMovies = movies.filter((movie) => {
+    if (query === "") {
+      return true;
+    } else {
+      return movie.title.toLowerCase().startsWith(query.toLowerCase());
+    }
+  });
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -57,13 +70,23 @@ const Home = () => {
     fetchMovies();
   }, []);
 
+
+
   return (
     <div className="home-page">
       <Header filterDisplayChange={filterDisplayChange} />
-        <SearchBar />
+      <div className="searchbar-container">
+        <input
+          type="text"
+          className="searchbar-form"
+          placeholder="Search movies..."
+          onChange={search}
+          value={query}
+        />
+      </div>
       <div className="movie-cards-container">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} img={movie.image} id={movie.id} />
+        {filteredMovies.map((movie) => (
+          <MovieCard key={movie.title} img={movie.image} />
         ))}
       </div>
       <FilterMovies isOpen={isOpen} filterDisplayChange={filterDisplayChange} />

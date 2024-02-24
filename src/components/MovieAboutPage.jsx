@@ -13,6 +13,7 @@ const MovieAboutPage = () => {
     }
 
     const {id} = useParams();
+    console.log({id})
 
     const [selectedMovie, setSelectedMovie] = useState([]);
   
@@ -54,7 +55,7 @@ const MovieAboutPage = () => {
           <div className="movie-director">
             Director: Shrek
           </div>
-          <div className="movie-trailer"><ReactPlayer url="https://www.youtube.com/watch?v=oW-vf54cUes" width="560px" height="315px" /></div>
+          <div className="movie-trailer"><ReactPlayer url={selectedMovie.trailer} width="560px" height="315px" /></div>
           <button onClick={bookMovieTicketHandler} className="book-movie-button">Book Tickets</button>
         </div>
       </div>

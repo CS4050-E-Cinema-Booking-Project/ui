@@ -86,7 +86,7 @@ const Home = () => {
       </div>
       <div className="movie-cards-container">
         {filteredMovies.map((movie) => (
-          <MovieCard key={movie.title} img={movie.image} />
+          <MovieCard key={movie.title} img={movie.image} id={movie.id} />
         ))}
       </div>
       <FilterMovies isOpen={isOpen} filterDisplayChange={filterDisplayChange} />

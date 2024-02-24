@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import '../style/SignupForm.css'
 
-
 const SignupForm = () => {
 
     const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -11,7 +10,7 @@ const SignupForm = () => {
     const [enteredPassword, setEnteredPassword] = useState('');
     const [enteredConfirmPassword, setConfirmPassword] = useState('');
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
         document.getElementById('firstNameP').style.display = 'none';
         document.getElementById('lastNameP').style.display = 'none';
@@ -50,6 +49,13 @@ const SignupForm = () => {
         if (enteredPassword != enteredConfirmPassword) {
             document.getElementById('passwordNoMatch').style.display = 'block';
         }
+
+        await fetch(`http://localhost:8000/users/`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(enteredSignupData)
+        })
+
     }
 
     const firstNameChangeHandler = (event) => {

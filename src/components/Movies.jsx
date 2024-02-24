@@ -32,7 +32,8 @@ export default function Movies() {
       image: '',
       trailer: '',
       director: '',
-      genre: ''
+      genre: '',
+      releaseDate: ''
     });
 
     const fetchMovies = async () => {
@@ -62,7 +63,8 @@ export default function Movies() {
         image: '',
         trailer: '',
         director: '',
-        genre: ''
+        genre: '',
+        releaseDate: ''
       })
       
     }
@@ -195,6 +197,13 @@ export default function Movies() {
               </label>
               <br></br>
               <input type='text' id='genre' name='genre' onChange={handleInputChange} value={formData.genre}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="releaseDate" className='form-label'>
+                Release Date
+              </label>
+              <br></br>
+              <input type='text' id='releaseDate' name='releaseDate' onChange={handleInputChange} value={formData.releaseDate}/>
             </div>
             <div>
               <button type='submit' size="sm">

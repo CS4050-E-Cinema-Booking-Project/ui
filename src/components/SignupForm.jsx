@@ -55,6 +55,13 @@ const SignupForm = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(enteredSignupData)
         })
+        
+        setEnteredFirstName('');
+        setEnteredLastName('');
+        setEnteredPhoneNumber('');
+        setEnteredEmail('');
+        setEnteredPassword('');
+        setConfirmPassword('');
 
     }
 

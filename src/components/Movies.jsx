@@ -30,7 +30,9 @@ export default function Movies() {
       title: '',
       description: '',
       image: '',
-      trailer: ''
+      trailer: '',
+      director: '',
+      genre: ''
     });
 
     const fetchMovies = async () => {
@@ -57,7 +59,10 @@ export default function Movies() {
       setFormData({
         title: '',
         description: '',
-        image: ''
+        image: '',
+        trailer: '',
+        director: '',
+        genre: ''
       })
       
     }
@@ -165,21 +170,38 @@ export default function Movies() {
             </div>
             <div className="mb-3">
               <label htmlFor="image" className='form-label'>
-                Image
+                Image Link
               </label>
               <br></br>
               <input type='text' id='image' name='image' onChange={handleInputChange} value={formData.image}/>
             </div>
             <div className="mb-3">
-              <label htmlFor="image" className='form-label'>
-                Image
+              <label htmlFor="trailer" className='form-label'>
+                Trailer Link
               </label>
               <br></br>
               <input type='text' id='trailer' name='trailer' onChange={handleInputChange} value={formData.trailer}/>
             </div>
-              <button type='submit'>
+            <div className="mb-3">
+              <label htmlFor="director" className='form-label'>
+                Director
+              </label>
+              <br></br>
+              <input type='text' id='director' name='director' onChange={handleInputChange} value={formData.director}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="genre" className='form-label'>
+                Genre
+              </label>
+              <br></br>
+              <input type='text' id='genre' name='genre' onChange={handleInputChange} value={formData.genre}/>
+            </div>
+            <div>
+              <button type='submit' size="sm">
                 Add Movie
               </button>
+            </div>
+              
           </form>
 
           <table>

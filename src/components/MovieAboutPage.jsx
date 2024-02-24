@@ -47,13 +47,13 @@ const MovieAboutPage = () => {
           <h1 className="movie-title">{selectedMovie.title}</h1>
           <p className="movie-description">{selectedMovie.description}</p>
           <div className="movie-genre">
-            Genre: Horror
+            Genre: {selectedMovie.genre}
           </div>
           <div className="movie-actors">
             Actors: Shrek, Donkey
           </div>
           <div className="movie-director">
-            Director: Shrek
+            Director: {selectedMovie.director}
           </div>
           <div className="movie-trailer"><ReactPlayer url={selectedMovie.trailer} width="560px" height="315px" /></div>
           <button onClick={bookMovieTicketHandler} className="book-movie-button">Book Tickets</button>

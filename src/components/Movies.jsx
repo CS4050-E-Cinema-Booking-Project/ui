@@ -29,7 +29,8 @@ export default function Movies() {
     const [formData, setFormData] = useState({
       title: '',
       description: '',
-      image: ''
+      image: '',
+      trailer: ''
     });
 
     const fetchMovies = async () => {
@@ -168,6 +169,13 @@ export default function Movies() {
               </label>
               <br></br>
               <input type='text' id='image' name='image' onChange={handleInputChange} value={formData.image}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="image" className='form-label'>
+                Image
+              </label>
+              <br></br>
+              <input type='text' id='trailer' name='trailer' onChange={handleInputChange} value={formData.trailer}/>
             </div>
               <button type='submit'>
                 Add Movie

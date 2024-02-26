@@ -1,7 +1,7 @@
 import React from 'react';
-import "../style/MovieBox.css";
+import "../style/PastBox.css";
 
-function MovieBox({ image, title, date, time, tickets, seats }) {
+function PastBox({ image, title, date, time, tickets, seats }) {
     return (
         <div className="box">
             <div className="inner">
@@ -16,12 +16,11 @@ function MovieBox({ image, title, date, time, tickets, seats }) {
                     <h3>Seats | {seats}</h3>
                 </div>
                 <div className="right">
-                    <button className='view-seats-button'>View Seats</button>
-                    <button className='cancel-order-button'>Cancel Order</button>
+                    <button className='order-summary-button'>Order Summary</button>
                 </div>
             </div>
         </div>
     );
 }
 
-export default MovieBox;
+export default PastBox;

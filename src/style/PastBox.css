@@ -1,0 +1,55 @@
+.box {
+    border: 3px solid rgba(33, 40, 50, 0.125);
+    width: 90%;
+    height: fit-content;
+    padding: 10px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+  }
+
+  .inner {
+    text-align: left;
+    font-size: larger;
+    display: flex;
+  }
+
+  .movie-title {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .left {
+    padding: 10px;
+  }
+
+  .center {
+    text-align: center;
+    margin: auto;
+  }
+
+  .right {
+    float: right;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 0 0;
+  }
+
+  .poster {
+    height: 200px;
+    border-radius: 10px;
+    float: left;
+  }
+
+  .order-summary-button {
+    background-color: #0061f2;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 70px 0 15px 0;
+    border-radius: 12px;
+  }
+
+  .order-summary-button:hover {
+    background-color: #2358a7;
+}

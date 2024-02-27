@@ -2,6 +2,7 @@ import React from "react";
 import '../style/User.css'
 import { Link } from "react-router-dom";
 import MovieBox from "./MovieBox";
+import PastBox from "./PastBox";
 import ProfilePicture from "../images/pngtree-vintage-film-camera-illustration-vector-on-white-background-png-image_2069935.jpg"
 import Inception from "../images/s-l1600.jpg"
 import Troy from "../images/71P64ggfReL.jpg"
@@ -31,8 +32,8 @@ const User = () => {
         <div className="past">
           <h1 className="order-title">Past Orders</h1>
           <div className="past-box">
-            <MovieBox image={Troy} title={"Troy"} date={"Sunday"} time={"8PM"} tickets={"1"} seats={"B4"} />
-            <MovieBox image={Inception} title={"Inception"} date={"Saturday"} time={"3PM"} tickets={"3"} seats={"A4 B6 C2"} />
+            <PastBox image={Troy} title={"Troy"} date={"Sunday"} time={"8PM"} tickets={"1"} seats={"B4"} />
+            <PastBox image={Inception} title={"Inception"} date={"Saturday"} time={"3PM"} tickets={"3"} seats={"A4 B6 C2"} />
           </div>
         </div>
       </div>

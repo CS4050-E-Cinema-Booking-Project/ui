@@ -1,0 +1,27 @@
+.movie-time-container {
+    margin: 5%;
+    margin-left: 27%;
+    min-width: fit-content;
+  }
+  
+  .time-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .time-button {
+    padding: 10px;
+    border: none;
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .time-button:hover {
+    background-color: #a0a7aa;
+  }
+  
+  .selected {
+    background-color: #505c5e;
+    color: #fff;
+  }
+  

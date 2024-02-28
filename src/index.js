@@ -16,8 +16,8 @@ import Navbar from "./components/Navbar";
 import Checkout from "./components/Checkout";
 import CheckoutConfirm from "./components/CheckoutConfirm";
 import PurchaseTickets from "./components/PurchaseTickets";
-import PurchaseSummary from "./components/PurchaseSummary";
 import MovieAboutPage from "./components/MovieAboutPage";
+import OrderSummary from "./components/OrderSummary";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route path="/user" element={<User />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/purchase-tickets/:id" element={<PurchaseTickets />} />
-          <Route path="/purchase-summary" element={<PurchaseSummary />} />
+          <Route path="/purchase-summary" element={<OrderSummary />} />
           <Route path="/checkout/" element={<Checkout />} />
           <Route path="/checkout-confirm" element={<CheckoutConfirm />} />
           <Route path="/admin-movie" element={<AdminMovie />} />

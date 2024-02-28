@@ -22,7 +22,7 @@ const SelectSeats = ( {seatCount, currId} ) => {
             var warning = document.getElementById('select-all-seats-warning');
             warning.style.display = 'block';
         } else {
-            navigate('/checkout');
+            navigate('/purchase-summary');
         }
     }
   

@@ -1,4 +1,4 @@
-.user-box {
+.promo-box {
     display: flex;
     border: 3px solid rgba(33, 40, 50, 0.125);
     width: 90%;
@@ -8,11 +8,11 @@
     border-radius: 10px;
   }
 
-  .user-details-box {
+  .promo-details-box {
     margin: 10px 70px 10px 70px;
   }
 
-  .user-box-title {
+  .promo-box-title {
     text-decoration: underline;
     font-weight: bold;
   }
@@ -26,7 +26,7 @@
     border-radius: 12px;
   }
 
-  .delete-user-button {
+  .delete-promo-button {
     background-color: rgb(233, 51, 51);
     color: white;
     font-weight: bold;
@@ -35,7 +35,7 @@
     border-radius: 12px;
   }
 
-  .delete-user-button:hover {
+  .delete-promo-button:hover {
     background-color: rgb(166, 42, 42);
   }
 

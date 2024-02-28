@@ -25,6 +25,10 @@
     border-radius: 10px;
 }
 
+.signup-form-button:hover {
+  background-color: #2358a7;
+}
+
 form {
   display: flex;
   flex-direction: column;

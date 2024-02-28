@@ -7,9 +7,9 @@ const SignupComplete = () => {
         <div className="completion-box">
             <h1 className="completion-title">Signup Complete!</h1>
             <h3 className="completion-text">
-                Feel free to start browsing and booking movies now
-                <br></br>
                 Welcome to our wonderful site
+                <br></br>
+                Feel free to start browsing and booking movies now
             </h3>
             <Link className="signup-completion-link" to={"/"}>Return Home</Link>
         </div>

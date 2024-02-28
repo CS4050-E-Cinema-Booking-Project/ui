@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../style/SignupConfirm.css'
 import VerificationInput from "react-verification-input";
 
@@ -10,7 +11,9 @@ const SignupConfirm = () => {
                 length={5}
                 placeholder=""
             />
-            <button className="verify-button">Verify</button>
+            <div className="verify-link-box">
+                <Link className="verify-link" to={"/signup-complete"}>Verify</Link>
+            </div>
             <h3>Didn't get an email?</h3>
             <button className="resend">Resend</button>
         </div>

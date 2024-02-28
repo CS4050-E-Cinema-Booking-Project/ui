@@ -17,21 +17,26 @@ body {
     width: 300px;
 }
 
-.verify-button {
-    margin: 15px;
-    padding: 10px;
-    width: 90px;
-    border-radius: 15px;
-    background-color: blue;
-    color: white;
+.verify-link-box {
+    margin: 30px;
 }
 
-.verify-button:hover {
-    background-color: rgb(64, 64, 188);
+.verify-link {
+    margin: 15px;
+    padding: 12px;
+    width: 90px;
+    border-radius: 15px;
+    background-color: #0061f2;
+    color: white;
+    font-weight: bold;
+}
+
+.verify-link:hover {
+    background-color: #2358a7;
 }
 
 .resend {
-    color: blue;
+    color: #0061f2;
     padding: 6px;
     border: none;
     background: none;
@@ -40,7 +45,7 @@ body {
 
 .resend:hover {
     background-color: white;
-    color: blue;
+    color: #2358a7;
 }
 
 

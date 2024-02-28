@@ -9,8 +9,6 @@ const AdminMovie = () => {
     <div>
         <AdminNavbar />
       <div className="colRight">
-        <h1>Admin Movie</h1>
-        <Header />
         <Movies />
       </div>
     </div>

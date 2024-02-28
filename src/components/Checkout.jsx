@@ -13,23 +13,23 @@ const Checkout = () => {
             <div>
               <div className="settings-card">
                 <label className="settings-title">Street Address</label>
-                <input className="settings-form" type="text"/>
+                <input className="settings-form" type="text" />
               </div>
             </div>
             <div>
               <div className="name-card">
                 <label className="name-title">City</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
               <div className="name-card">
                 <label className="name-title">State</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
             </div>
             <div>
               <div className="name-card">
                 <label className="name-title">Postal/Zip Code</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
             </div>
           </form>
@@ -40,13 +40,13 @@ const Checkout = () => {
             <div>
               <div className="settings-card">
                 <label className="settings-title">Card Number</label>
-                <input className="settings-form" type="tel"/>
+                <input className="settings-form" type="tel" />
               </div>
             </div>
             <div>
               <div className="name-card">
                 <label className="name-title">CVC</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
               <div className="name-card">
                 <label className="name-title">Card Expiration</label>
@@ -56,16 +56,18 @@ const Checkout = () => {
             <div>
               <div className="name-card">
                 <label className="name-title">First Name</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
               <div className="name-card">
                 <label className="name-title">Last name</label>
-                <input className="name-form" type="text"/>
+                <input className="name-form" type="text" />
               </div>
             </div>
+            <div className="checkout-button-box">
+              <Link to="/" className="cancel-button">Cancel</Link>
+              <Link to="/checkout-confirm" className="checkout-button">Confirm Purchase</Link>
+            </div>
           </form>
-          <Link to="/" className="cancel-button">Cancel</Link>
-          <button class="confirm-button" type="button">Confirm Purchase</button>
         </div>
       </div>
     </div>

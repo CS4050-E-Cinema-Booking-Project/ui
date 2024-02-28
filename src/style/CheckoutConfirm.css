@@ -5,7 +5,13 @@ body {
 .check-confirm-title {
     text-decoration: none;
     font-size: 35px;
-    padding: 80px 0 20px 0;
+    padding: 30px 0 20px 0;
+}
+
+.order-summary-poster {
+    width: 40%;
+    height: 50%;
+    margin: 10px auto;
 }
 
 .order-detail-title {
@@ -14,18 +20,32 @@ body {
     font-weight: bold;
 }
 
+.order-movie-title {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.order-movie-details {
+    margin: 10px 0 30px 0;
+}
+
 .return-home {
-    background-color: blue;
+    background-color: #0061f2;
     color: white;
     border-radius: 12px;
     font-weight: bold;
     padding: 10px;
-    margin: 50px;
+    margin: 30px;
+}
+
+.return-home:hover {
+    background-color: #2358a7;
 }
 
 .order-summary {
     border-color: black;
     border-width: 2px;
-    padding: 100px;
-    margin: 0px 400px 40px 400px
+    padding: 20px 50px 30px 50px;
+    margin: 0px auto 40px auto;
+    width: 50%;
 }

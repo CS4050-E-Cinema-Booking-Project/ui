@@ -25,12 +25,25 @@
     flex-basis: 40%;
 }
 
-.ticket-count-form-container {
+.time-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.seat-select-form {
+.time-radio {
+    display: none;
 }
 
-.ticket-age-container {
+.time-label {
+    padding: 10px;
+    margin: 5px;
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
+.time-radio:checked + .time-label {
+    background: linear-gradient(to right, #0575e6, #00f260);
 }

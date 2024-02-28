@@ -21,16 +21,19 @@ const MovieTimeSelect = () => {
         <button
           className={`time-button ${selectedTime === '9:00 PM' ? 'selected' : ''}`}
           onClick={() => handleTimeSelect('9:00 PM')}
+        >
           9:00 PM
         </button>
         <button
           className={`time-button ${selectedTime === '9:30 PM' ? 'selected' : ''}`}
           onClick={() => handleTimeSelect('9:30 PM')}
+        >
           9:30 PM
         </button>
         <button
           className={`time-button ${selectedTime === '10:00 PM' ? 'selected' : ''}`}
           onClick={() => handleTimeSelect('10:00 PM')}
+        >
           10:00 PM
         </button>
       </div>

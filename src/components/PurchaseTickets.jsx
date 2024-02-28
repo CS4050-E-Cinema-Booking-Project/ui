@@ -5,6 +5,7 @@ import '../style/PurchaseTickets.css';
 import SelectSeatNumberForm from "./SelectSeatNumberForm";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import MovieTimeSelect from "./MovieTimeSelect";
 
 const PurchaseTickets = () => {
 
@@ -62,7 +63,9 @@ const PurchaseTickets = () => {
         <img className="movie-cover-image" src={selectedMovie.image} />
       </div>
 
-        <div className="form-container">
+      <div className="form-container">
+
+          <MovieTimeSelect />
 
           <SelectSeatNumberForm seatSelectChangeHandler={seatSelectChangeHandler} seatSelectFormHandler={seatSelectFormHandler} />
 

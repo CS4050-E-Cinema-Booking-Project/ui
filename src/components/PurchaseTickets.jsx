@@ -38,7 +38,7 @@ const PurchaseTickets = () => {
   const [seatPlacementSelect, setSeatPlacementSelect] = useState(null);
 
   const showSelectPopup = () => {
-    var seatSelectComponent = <SelectSeats seatCount={seatCount} />
+    var seatSelectComponent = <SelectSeats seatCount={seatCount} currId={id} />
     setSeatPlacementSelect(seatSelectComponent);
   }
 

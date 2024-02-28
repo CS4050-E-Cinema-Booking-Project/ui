@@ -1,0 +1,28 @@
+.completion-box {
+    border: 3px solid rgba(33, 40, 50, 0.125);
+    width: 50%;
+    margin: 20vh auto;
+    height: 300px;
+}
+
+.completion-title {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 35px 0 0 0;
+}
+
+.completion-text {
+    padding: 30px 0 45px 0;
+}
+
+.signup-completion-link {
+    background-color: #0061f2;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.signup-completion-link:hover {
+    background-color: #2358a7;
+}

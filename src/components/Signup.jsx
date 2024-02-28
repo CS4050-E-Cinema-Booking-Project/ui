@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../style/Signup.css'
 
 const Signup = () => {
+
+    const navigate = useNavigate();
 
     const [enteredFirstName, setEnteredFirstName] = useState('');
     const [enteredLastName, setEnteredLastName] = useState('');
@@ -62,6 +65,8 @@ const Signup = () => {
         setEnteredEmail('');
         setEnteredPassword('');
         setConfirmPassword('');
+
+        navigate("/signup-confirm");
 
     }
 

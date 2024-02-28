@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Signup from "./components/Signup";
 import SignupConfirm from "./components/SignupConfirm";
+import SignupComplete from "./components/SignupComplete";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import AdminMovie from "./components/AdminMovie";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
+          <Route path="/signup-complete" element={<SignupComplete />} />
           <Route path="/user" element={<User />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/purchase-tickets/:id" element={<PurchaseTickets />} />

@@ -61,9 +61,43 @@
 
   .confirm-button {
     background-color: rgb(73, 73, 90);
+    height: 3rem;
   }
 
   .confirm-button:hover {
     background-color: rgb(37, 37, 51);
   }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 28%;
+  }
+
+  .cancel-button {
+    background-color: rgb(157, 81, 81);
+    height: 2rem;
+    margin: 5%;
+    color: white;
+    border: 1px solid black;
+  }
+
+  .cancel-button:hover {
+    background-color: rgb(156, 48, 48);
+  }
+
+  .update-button {
+    background-color: rgb(104, 141, 104);
+    height: 2rem;
+    width: 8%;
+    margin: 5%;
+    color: white;
+    border: 1px solid black;
+  }
   
+  .update-button:hover {
+    background-color: rgb(49, 106, 49);
+
+  }

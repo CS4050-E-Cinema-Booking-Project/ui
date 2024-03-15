@@ -43,7 +43,7 @@ const Login = () => {
             value={enteredPassword}
             onChange={passwordChangeHandler}
           />
-          <Link to="/" className="forgot-password-button">Forgot Password?</Link>
+          <Link to="/forgot-password" className="forgot-password-button">Forgot Password?</Link>
           <button className="login-form-button" type="submit">Login</button>
         </form>
       </div>

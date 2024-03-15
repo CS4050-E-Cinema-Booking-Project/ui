@@ -7,6 +7,7 @@ import SignupConfirm from "./components/SignupConfirm";
 import SignupComplete from "./components/SignupComplete";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
 import AdminMovie from "./components/AdminMovie";
 import AdminUser from "./components/AdminUser";
 import AdminPromo from "./components/AdminPromo";
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/signup-complete" element={<SignupComplete />} />

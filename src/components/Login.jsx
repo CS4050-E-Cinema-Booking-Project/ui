@@ -8,6 +8,7 @@ const Login = ({setAuthenticated}) => {
   const navigate = useNavigate();
 
   const [data, setData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
   const handleChange = ({ currentTarget: input }) => {
     const {name, value} = input;

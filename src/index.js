@@ -8,6 +8,7 @@ import SignupComplete from "./components/SignupComplete";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 import AdminMovie from "./components/AdminMovie";
 import AdminUser from "./components/AdminUser";
 import AdminPromo from "./components/AdminPromo";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setAuthenticated={setAuthenticated} />} /> {/* Pass setAuthenticated prop to Login */}
           <Route path="/forgot-password" element={<ForgotPassword/>} />
+          <Route path="/reset-password" element={<ResetPassword/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/signup-complete" element={<SignupComplete />} />

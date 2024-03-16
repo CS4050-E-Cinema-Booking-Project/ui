@@ -2,14 +2,12 @@ import React from "react";
 import { useState } from "react";
 import '../style/ForgotPassword.css'
 import { isEmail } from "validator";
-import { useNavigate } from "react-router-dom";
 
 const ForgotPassword = () => {
 
-    const navigate = useNavigate();
-
     const [enteredEmail, setEnteredEmail] = useState("");
     const [emailError, setEmailError] = useState("");
+    const [submitting, setSubmitting] = useState(false);
 
     const required = (value) => {
         if (!value) {
@@ -27,13 +25,34 @@ const ForgotPassword = () => {
         return true;
     }
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
         const isEmailValid = required(enteredEmail) && vemail(enteredEmail);
-        if (isEmailValid) {
-            navigate("/reset-password");
+        if (isEmailValid && !submitting) {
+            setSubmitting(true); 
+            try {
+                const response = await fetch("", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email: enteredEmail }),
+                });
+                if (response.ok) {
+                    setEnteredEmail("");
+                    setEmailError("");
+                    alert("Reset link sent to your email.");
+                } else {
+                    alert("Failed to send reset link. Please try again later.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again later.");
+            } finally {
+                setSubmitting(false);
+            }
         }
-    }
+    };
 
     const emailChangeHandler = (event) => {
         setEnteredEmail(event.target.value);
@@ -51,13 +70,16 @@ const ForgotPassword = () => {
                     placeholder="Enter email..."
                     value={enteredEmail}
                     onChange={emailChangeHandler}
+                    disabled={submitting}g
                 />
                 {emailError && (
                     <span style={{ display: "block" }} className="forgot-password-error">
                         {emailError}
                     </span>
                 )}
-                <button className="login-form-button" type="submit">Submit</button>
+                <button className="login-form-button" type="submit" disabled={submitting}>
+                    {submitting ? "Submitting..." : "Submit"}
+                </button>
             </form>
         </div>
     );

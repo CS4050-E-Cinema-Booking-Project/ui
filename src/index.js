@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -21,13 +21,16 @@ import MovieAboutPage from "./components/MovieAboutPage";
 import OrderSummary from "./components/OrderSummary";
 
 function App() {
+
+  const [authenticated, setAuthenticated] = useState(false);
+
   return (
     <BrowserRouter>
       <ChakraProvider>
-        <Navbar />
+        <Navbar isAuthenticated={authenticated} setAuthenticated={setAuthenticated}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuthenticated={setAuthenticated} />} /> {/* Pass setAuthenticated prop to Login */}
           <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />

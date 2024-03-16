@@ -44,13 +44,12 @@
     color: #0061f2;
   }
 
-  .error_msg {
-    width: 370px;
-    padding: 15px;
+  .error-message {
+    width: fit-content;
+    padding: 5px;
     margin: 5px 0;
-    font-size: 14px;
-    background-color: #f34646;
-    color: white;
+    font-size: 15px;
+    color: #f34646;
     border-radius: 5px;
     text-align: center;
   }

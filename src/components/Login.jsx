@@ -56,6 +56,7 @@ const Login = ({setAuthenticated}) => {
             value={data.password}
             required
           />
+          <p className="error-message">{error}</p>
           <Link to="/forgot-password" className="forgot-password-button">Forgot Password?</Link>
           <button className="login-form-button" type="submit">Login</button>
         </form>

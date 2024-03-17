@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setAuthenticated={setAuthenticated} />} /> {/* Pass setAuthenticated prop to Login */}
           <Route path="/forgot-password" element={<ForgotPassword/>} />
-          <Route path="/reset-password" element={<ResetPassword/>} />
+          <Route path="/reset-password/:id" element={<ResetPassword/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/signup-complete" element={<SignupComplete />} />

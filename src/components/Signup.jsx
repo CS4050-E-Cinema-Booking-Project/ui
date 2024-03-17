@@ -12,6 +12,7 @@ const Signup = () => {
     const [enteredPhoneNumber, setEnteredPhoneNumber] = useState('');
     const [enteredPassword, setEnteredPassword] = useState('');
     const [enteredConfirmPassword, setConfirmPassword] = useState('');
+    const [userCode, setUserCode] = useState('');
 
     const submitHandler = async (event) => {
         event.preventDefault();
@@ -29,7 +30,8 @@ const Signup = () => {
             phoneNumber: enteredPhoneNumber,
             email: enteredEmail,
             password: enteredPassword,
-            confirmPassword: enteredConfirmPassword
+            confirmPassword: enteredConfirmPassword,
+            userCode: ''
         };
         if (enteredFirstName === undefined || enteredFirstName.length < 1) {
             document.getElementById('firstNameP').style.display = 'block';
@@ -53,11 +55,13 @@ const Signup = () => {
             document.getElementById('passwordNoMatch').style.display = 'block';
         }
 
-        await fetch(`http://localhost:8000/users/`, {
+        const response = await fetch(`http://localhost:8000/users/`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(enteredSignupData)
         })
+
+        const data = await response.json();
         
         setEnteredFirstName('');
         setEnteredLastName('');
@@ -66,7 +70,7 @@ const Signup = () => {
         setEnteredPassword('');
         setConfirmPassword('');
 
-        navigate("/signup-confirm");
+        navigate('/signup-confirm', { state: { id: 0, user: data } });
 
     }
 

@@ -98,3 +98,60 @@
     width: 60%;
     margin: 80px auto 80px auto;
 }
+
+
+.order-summary-box {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    top: 150px;
+    right: 20px;
+    width: 18%;
+  }
+  
+  .order-summary-box .card-body {
+    padding: 10px;
+  }
+  
+  .order-summary-box .card-title {
+    margin-bottom: 10px;
+  }
+  
+  .order-total,
+  .promo-code {
+    height: 40px;
+  }
+
+  .card-body {
+    height: fit-content;
+    border: 0.5px solid black;
+  }
+  
+  .order-total label,
+  .promo-code label {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+  }
+  
+  .order-total label {
+    float: left;
+  }
+  
+  .order-total span {
+    float: right;
+  }
+
+  .promo-code label {
+    float: left;
+  }
+  
+  .promo-code-input {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  

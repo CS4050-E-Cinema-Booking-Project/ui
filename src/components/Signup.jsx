@@ -14,9 +14,13 @@ const Signup = () => {
     const [enteredPhoneNumber, setEnteredPhoneNumber] = useState('');
     const [enteredPassword, setEnteredPassword] = useState('');
     const [enteredConfirmPassword, setConfirmPassword] = useState('');
+    const [promotionOptIn, setPromotionOptIn] = useState(false);
     const [userCode, setUserCode] = useState('');
 
     const submitHandler = async (event) => {
+
+        var signupComplete = true;
+
         event.preventDefault();
         document.getElementById('firstNameP').style.display = 'none';
         document.getElementById('lastNameP').style.display = 'none';
@@ -34,28 +38,36 @@ const Signup = () => {
             email: enteredEmail,
             password: enteredPassword,
             confirmPassword: enteredConfirmPassword,
+            promotionOptIn: promotionOptIn,
             userCode: ''
         };
         if (enteredFirstName === undefined || enteredFirstName.length < 1) {
             document.getElementById('firstNameP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredLastName === undefined || enteredLastName.length < 1) {
             document.getElementById('lastNameP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredPhoneNumber === undefined || enteredPhoneNumber.length < 1) {
             document.getElementById('phoneNumberP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredEmail === undefined || enteredEmail.length < 1) {
             document.getElementById('emailP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredPassword === undefined || enteredPassword.length < 1) {
             document.getElementById('passwordP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredConfirmPassword === undefined || enteredConfirmPassword.length < 1) {
             document.getElementById('confirmPasswordP').style.display = 'block';
+            signupComplete = false;
         }
         if (enteredPassword != enteredConfirmPassword) {
             document.getElementById('passwordNoMatch').style.display = 'block';
+            signupComplete = false;
         }
         
         try {
@@ -86,7 +98,7 @@ const Signup = () => {
         } catch (error) {
             document.getElementById('emailExists').style.display = 'block';
         }
-
+      
     }
 
     const firstNameChangeHandler = (event) => {
@@ -111,6 +123,10 @@ const Signup = () => {
 
     const confirmPasswordChangeHandler = (event) => {
         setConfirmPassword(event.target.value);
+    }
+
+    const promotionOptInChangeHandler = (event) => {
+        setPromotionOptIn(event.target.checked);
     }
 
     return(
@@ -167,6 +183,13 @@ const Signup = () => {
             type="password"
             value = {enteredConfirmPassword}
             onChange = {confirmPasswordChangeHandler}
+          />
+          <label>Opt-in to email promotions and deals:</label>
+          <input
+            id="promotion-opt-in"
+            type="checkbox"
+            value = {promotionOptIn}
+            onChange={promotionOptInChangeHandler}
           />
           <button className="signup-form-button" type="submit">Sign Up</button>
         </form>

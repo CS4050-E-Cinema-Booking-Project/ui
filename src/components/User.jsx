@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../style/User.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MovieBox from "./MovieBox";
 import PastBox from "./PastBox";
 import ProfilePicture from "../images/pngtree-vintage-film-camera-illustration-vector-on-white-background-png-image_2069935.jpg"
@@ -18,6 +18,15 @@ const User = () => {
   });
 
   const [currUserInfo, setCurrUserInfo] = useState({});
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await api.get('/users/');
+    const user = response.data.find(user => user.id == userId);
+    navigate("/edit-profile",{state: user})
+  }
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -48,7 +57,8 @@ const User = () => {
       <div className="flex-child">
         <img className="profile-picture" src={ProfilePicture} alt="picture" />
         <h1 className="user-name">{currUserInfo.firstName + " " + currUserInfo.lastName}</h1>
-        <Link to="/edit-profile" className='user-button'>Edit Profile</Link>
+
+        <button className='user-button' onClick={handleSubmit}>Edit Profile</button>
       </div>
       <div className="order-container">
         <div className="upcoming">

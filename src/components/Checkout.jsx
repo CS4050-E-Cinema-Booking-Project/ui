@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../style/Checkout.css";
 
 const Checkout = () => {
+
+  const [enteredPromoCode, setEnteredPromoCode] = useState('');
+
+  const promoCodeChangeHandler = (event) => {
+    setEnteredPromoCode(event.target.value);
+  }
+
+  const promoCodeSubmitHandler = (event) => {
+    if (event.key == 'Enter') {
+      console.log(enteredPromoCode);
+      // promo code handling here
+    }
+  }
+
   return (
     <div>
       <div className="settings-box">
         <div className="card-body">
-          <div class="card-title">Billing Address</div>
+          <div className="card-title">Billing Address</div>
           <button className="saved-cards-button" type="button">Saved Cards</button>
           <form>
             <div>
@@ -35,7 +49,7 @@ const Checkout = () => {
           </form>
         </div>
         <div className="card-body">
-          <div class="card-title">Payment Information</div>
+          <div className="card-title">Payment Information</div>
           <form>
             <div>
               <div className="settings-card">
@@ -70,6 +84,21 @@ const Checkout = () => {
           </form>
         </div>
       </div>
+
+      <div className="order-summary-box">
+        <div className="card-body">
+          <div className="card-title">Order Summary</div>
+          <div className="order-total">
+            <label>Total:</label>
+            <span>$30.00</span>
+          </div>
+          <div className="promo-code">
+            <label>Promo Code:</label>
+            <input onKeyPress={promoCodeSubmitHandler} onChange={promoCodeChangeHandler} className="promo-code-input" type="text" />
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

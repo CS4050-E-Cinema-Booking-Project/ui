@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import '../style/ResetPassword.css'
+import axios from "axios";
+
 
 const ResetPassword = () => {
 
@@ -9,14 +11,24 @@ const ResetPassword = () => {
 
     const [data, setData] = useState({ password: "", confirm: "" });
     const [error, setError] = useState("");
+    const {id} = useParams();
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
         if (data.password !== data.confirm) {
             setError("Passwords do not match");
         } else {
-            setError("");
-            navigate("/login");
+            const url = "http://localhost:8000/users/";
+            const { data: users } = await axios.get(url); // Fetch all users from the server
+            const user = users.find(user => user.id == id);
+            const url2 = `http://localhost:8000/users/${user.id}`;
+            user.password = data.password;
+            user.confirmPassword = data.confirm
+            await axios.put(url2, user)
+
+            console.log(user)
+            setError("Password Reset!");
+            navigate("/");
         }
     }
 

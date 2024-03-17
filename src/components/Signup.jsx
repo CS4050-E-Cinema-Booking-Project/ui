@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../style/Signup.css'
+import axios from "axios";
+
 
 const Signup = () => {
 
@@ -20,6 +22,7 @@ const Signup = () => {
         document.getElementById('lastNameP').style.display = 'none';
         document.getElementById('phoneNumberP').style.display = 'none';
         document.getElementById('emailP').style.display = 'none';
+        document.getElementById('emailExists').style.display = 'none';
         document.getElementById('passwordP').style.display = 'none';
         document.getElementById('confirmPasswordP').style.display = 'none';
         document.getElementById('passwordNoMatch').style.display = 'none';
@@ -54,23 +57,35 @@ const Signup = () => {
         if (enteredPassword != enteredConfirmPassword) {
             document.getElementById('passwordNoMatch').style.display = 'block';
         }
-
-        const response = await fetch(`http://localhost:8000/users/`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(enteredSignupData)
-        })
-
-        const data = await response.json();
         
-        setEnteredFirstName('');
-        setEnteredLastName('');
-        setEnteredPhoneNumber('');
-        setEnteredEmail('');
-        setEnteredPassword('');
-        setConfirmPassword('');
+        try {
+            const url = "http://localhost:8000/users/";
+            const { data: users } = await axios.get(url); // Fetch all users from the server
+            const user = users.find(user => user.email === enteredEmail);
+            if(user) {
+                document.getElementById('emailExists').style.display = 'block';
+            } else {
+                const response = await fetch(`http://localhost:8000/users/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(enteredSignupData)
+                })
 
-        navigate('/signup-confirm', { state: { id: 0, user: data } });
+                const data = await response.json();
+                
+                setEnteredFirstName('');
+                setEnteredLastName('');
+                setEnteredPhoneNumber('');
+                setEnteredEmail('');
+                setEnteredPassword('');
+                setConfirmPassword('');
+
+                navigate('/signup-confirm', { state: { id: 0, user: data } });
+                
+            }
+        } catch (error) {
+            document.getElementById('emailExists').style.display = 'block';
+        }
 
     }
 
@@ -129,6 +144,7 @@ const Signup = () => {
           />
           <label>Email</label>
           <p className="hiddenField" id="emailP">Field Required</p>
+          <p className="hiddenField" id="emailExists">An Account with this email already exists.</p>
            <input
             id="email"
             type="text"

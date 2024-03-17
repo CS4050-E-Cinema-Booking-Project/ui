@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import '../style/SignupConfirm.css'
 import VerificationInput from "react-verification-input";
-import isEqual from 'lodash.isequal';
-
 
 
 const SignupConfirm = (event) => {

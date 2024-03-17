@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../style/User.css'
 import { Link } from "react-router-dom";
 import MovieBox from "./MovieBox";
@@ -6,20 +6,48 @@ import PastBox from "./PastBox";
 import ProfilePicture from "../images/pngtree-vintage-film-camera-illustration-vector-on-white-background-png-image_2069935.jpg"
 import Inception from "../images/s-l1600.jpg"
 import Troy from "../images/71P64ggfReL.jpg"
+import axios from "axios";
 
 
 const User = () => {
+
+  const userId = localStorage.getItem("token");
+
+  const api = axios.create({
+    baseURL: 'http://localhost:8000'
+  });
+
+  const [currUserInfo, setCurrUserInfo] = useState({});
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await api.get('/users/');
+        const user = response.data.find(user => user.id == userId);
+        if (user) {
+          setCurrUserInfo({
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            password: user.password
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+    if (userId) {
+      fetchUsers();
+    }
+  }, [userId]);
+
   return (
     <div className="flex-container">
       <div className="flex-child">
         <img className="profile-picture" src={ProfilePicture} alt="picture" />
-        <h1 className="user-name">John Doe</h1>
-        <h3 className="user-desc">
-          My favorite movie is Running the Rat Race! I love
-          comedy and horror movies, and am looking for recommendations.
-          If you want to email me, my email is JohnDoe@gmail.com, feel free
-          to message me!
-        </h3>
+        <h1 className="user-name">{currUserInfo.firstName + " " + currUserInfo.lastName}</h1>
         <Link to="/edit-profile" className='user-button'>Edit Profile</Link>
       </div>
       <div className="order-container">

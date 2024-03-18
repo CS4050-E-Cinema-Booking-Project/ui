@@ -44,6 +44,13 @@
     color: #0061f2;
   }
 
+  .change-password-button {
+    font-weight: 400;
+    font-size: 15px;
+    margin: 5px;
+    color: #0061f2;
+  }
+
   .error-message {
     width: fit-content;
     padding: 5px;

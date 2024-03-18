@@ -7,6 +7,7 @@ import SignupConfirm from "./components/SignupConfirm";
 import SignupComplete from "./components/SignupComplete";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import ChangePassword from "./components/ChangePassword";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import AdminMovie from "./components/AdminMovie";
@@ -38,7 +39,8 @@ function App() {
         <Navbar isAuthenticated={authenticated} setAuthenticated={setAuthenticated}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} /> {/* Pass setAuthenticated prop to Login */}
+          <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} />
+          <Route path="/change-password" element={<ChangePassword />} />
           <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/reset-password/:id" element={<ResetPassword/>} />
           <Route path="/signup" element={<Signup />} />

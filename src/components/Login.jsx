@@ -38,8 +38,14 @@ const Login = ({setAuthenticated}) => {
         if (rememberMe) {
           localStorage.setItem("token", user.id);
         }
+        if (user.userType === "admin") {
+          localStorage.setItem("isAdmin", "true");
+        } else {
+          localStorage.setItem("isAdmin", "false");
+        }
         setAuthenticated(true);
         navigate("/");
+        debugger;
       } else {
         setError("Invalid email or password"); 
       }

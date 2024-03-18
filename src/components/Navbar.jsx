@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../style/Navbar.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-const Navbar = ({ isAuthenticated, setAuthenticated }, {isAdmin, setAdmin}) => {
+const Navbar = ({ isAuthenticated, setAuthenticated}) => {
   
     const navigate = useNavigate();
 
@@ -30,6 +30,11 @@ const Navbar = ({ isAuthenticated, setAuthenticated }, {isAdmin, setAdmin}) => {
             <li>
               <NavLink to="/user">User</NavLink>
             </li>
+            {localStorage.getItem("isAdmin") === "true" && (
+              <li>
+              <NavLink to="/admin-movie">Admin</NavLink>
+              </li>
+            )}
             <li>
               <button className="signout-button" onClick={handleLogout}>Sign Out</button>
             </li>
@@ -41,9 +46,6 @@ const Navbar = ({ isAuthenticated, setAuthenticated }, {isAdmin, setAdmin}) => {
             </li>
             <li>
               <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/admin-movie">Admin</NavLink>
             </li>
           </>
         )}

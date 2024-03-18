@@ -38,7 +38,7 @@ function App() {
         <Navbar isAuthenticated={authenticated} setAuthenticated={setAuthenticated}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setAuthenticated={setAuthenticated} />} /> {/* Pass setAuthenticated prop to Login */}
+          <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} /> {/* Pass setAuthenticated prop to Login */}
           <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/reset-password/:id" element={<ResetPassword/>} />
           <Route path="/signup" element={<Signup />} />

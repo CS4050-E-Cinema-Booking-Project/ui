@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import '../style/SignupConfirm.css'
 import VerificationInput from "react-verification-input";
+import axios from "axios";
 
 
 const SignupConfirm = () => {
 
-    const { state } = useLocation();
-    const { user } = state
+    const {state} = useLocation();
+    const enteredInfo = state.user
+    const cardInfo = state.card
+    const userCode = state.userInfo.userCode
+    const userID = state.userInfo.id
     const navigate = useNavigate();
-    const userCode = user.userCode
     const [error, setError] = useState("");
     const [resentEmail, setResentEmail] = useState("");
     const [value, setValue] = useState("");
@@ -22,7 +25,23 @@ const SignupConfirm = () => {
         e.preventDefault();
         try {
             if(value == userCode) {
+                const response = await fetch(`http://localhost:8000/users/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(enteredInfo)
+                })
+                const data = await response.json();    
+
+                cardInfo.userID = data.id
+                const responseCard = await fetch(`http://localhost:8000/paymentCards/`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(cardInfo)
+                })
+
+                const dataCard = await responseCard.json();    
                 navigate("/signup-complete");
+
             } else {
                 setError("Invalid Verification Code"); 
             }
@@ -34,6 +53,9 @@ const SignupConfirm = () => {
 
     const submitResendHandler = function(){
         try {
+            const url = "http://localhost:8000/users/";
+            const { data: users } = axios.get(url); // Fetch all users from the server
+            const user = users.find(user => user.email === enteredInfo.email);
             fetch(`http://localhost:8000/users/resend-email`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../style/Navbar.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-const Navbar = ({ isAuthenticated, setAuthenticated }) => {
+const Navbar = ({ isAuthenticated, setAuthenticated }, {isAdmin, setAdmin}) => {
   
     const navigate = useNavigate();
 

@@ -63,7 +63,16 @@
     font-weight: 100;
     text-align: left;
 }
-  
+
+.remember-box {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.remember-box input[type="checkbox"] {
+  margin-right: 8px;
+}
+
   form {
     display: flex;
     flex-direction: column;

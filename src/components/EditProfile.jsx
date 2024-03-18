@@ -99,8 +99,8 @@ const EditProfile = () => {
               </div>
             </div>
             <div className="settings-card">
-              <label className="settings-title">Email Address</label>
-              <input id='email' className="settings-form" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <label className="settings-title">Email Address (not editable)</label>
+              <input id='email' className="settings-form" type="text" value={email} />
             </div>
           </form>
         </div>

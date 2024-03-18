@@ -23,9 +23,13 @@ const User = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await api.get('/users/');
-    const user = response.data.find(user => user.id == userId);
-    navigate("/edit-profile",{state: user})
+    const responseUser = await api.get('/users/');
+    const user = responseUser.data.find(user => user.id == userId);
+
+    const responseCard = await api.get('/paymentCards/');
+    const card = responseCard.data.find(card => card.userID == userId);
+
+    navigate("/edit-profile",{state: {userData: user, paymentData: card}})
   }
 
   useEffect(() => {

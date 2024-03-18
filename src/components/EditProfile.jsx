@@ -26,6 +26,8 @@ const EditProfile = () => {
         newUser.city = city
         newUser.state = state_add
         newUser.zipCode = zipCode
+        newUser.promotionOptIn = promotionOptIn
+        console.log(promotionOptIn)
 
         newCard.cardNumber = cardNumber
         newCard.expirationDate = cardExpiration
@@ -57,6 +59,7 @@ const EditProfile = () => {
   const [lastName, setLastName] = useState(user.lastName);
   const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
   const [email, setEmail] = useState(user.email);
+  const [promotionOptIn, setPromotionOptIn] = useState(user.promotionOptIn);
 
   const [streetAddress, setStreetAddress] = useState(user.streetAddress);
   const [city, setCity] = useState(user.city);
@@ -73,6 +76,7 @@ const EditProfile = () => {
   const [paymentCity, setPaymentCity] = useState(paymentInfo.city);
   const [paymentState, setPaymentState] = useState(paymentInfo.state);
   const [paymentZipCode, setPaymentZipCode] = useState(paymentInfo.zipCode);
+  
 
 
   return (
@@ -102,6 +106,13 @@ const EditProfile = () => {
               <label className="settings-title">Email Address (not editable)</label>
               <input id='email' className="settings-form" type="text" value={email} />
             </div>
+            <label>Opt-in to email promotions and deals:</label>
+            <input
+              id="promotion-opt-in"
+              type="checkbox"
+              checked = {promotionOptIn}
+              onClick={(e) => setPromotionOptIn(e.target.checked)}
+            />
           </form>
         </div>
         <div className="card-body">

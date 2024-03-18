@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -7,6 +7,8 @@ import SignupConfirm from "./components/SignupConfirm";
 import SignupComplete from "./components/SignupComplete";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 import AdminMovie from "./components/AdminMovie";
 import AdminUser from "./components/AdminUser";
 import AdminPromo from "./components/AdminPromo";
@@ -20,13 +22,25 @@ import MovieAboutPage from "./components/MovieAboutPage";
 import OrderSummary from "./components/OrderSummary";
 
 function App() {
+
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuthenticated(true);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <ChakraProvider>
-        <Navbar />
+        <Navbar isAuthenticated={authenticated} setAuthenticated={setAuthenticated}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} /> {/* Pass setAuthenticated prop to Login */}
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
+          <Route path="/reset-password/:id" element={<ResetPassword/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup-confirm" element={<SignupConfirm />} />
           <Route path="/signup-complete" element={<SignupComplete />} />

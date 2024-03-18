@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../style/Login.css'
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,10 +9,23 @@ const Login = ({setAuthenticated}) => {
 
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuthenticated(true);
+      navigate("/");
+    }
+  }, [navigate, setAuthenticated]);
 
   const handleChange = ({ currentTarget: input }) => {
     const {name, value} = input;
     setData({ ...data, [name]: value });
+  }
+
+  const handleCheckboxChange = () => {
+    setRememberMe(!rememberMe);
   }
 
   const handleSubmit = async (e) => {
@@ -22,7 +35,9 @@ const Login = ({setAuthenticated}) => {
       const { data: users } = await axios.get(url); // Fetch all users from the server
       const user = users.find(user => user.email === data.email && user.password === data.password);
       if(user) {
-        localStorage.setItem("token", user.id);
+        if (rememberMe) {
+          localStorage.setItem("token", user.id);
+        }
         setAuthenticated(true);
         navigate("/");
       } else {
@@ -56,6 +71,15 @@ const Login = ({setAuthenticated}) => {
             value={data.password}
             required
           />
+          <label className="remember-box">
+            <input
+              type="checkbox"
+              className="remember-checkbox"
+              checked={rememberMe}
+              onChange={handleCheckboxChange}
+            />
+            <span>Remember me</span>
+          </label>
           <p className="error-message">{error}</p>
           <Link to="/forgot-password" className="forgot-password-button">Forgot Password?</Link>
           <button className="login-form-button" type="submit">Login</button>

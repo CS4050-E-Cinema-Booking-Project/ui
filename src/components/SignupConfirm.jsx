@@ -53,17 +53,14 @@ const SignupConfirm = () => {
 
     const submitResendHandler = function(){
         try {
-            const url = "http://localhost:8000/users/";
-            const { data: users } = axios.get(url); // Fetch all users from the server
-            const user = users.find(user => user.email === enteredInfo.email);
             fetch(`http://localhost:8000/users/resend-email`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(user)
+                body: JSON.stringify(state.userInfo)
             })
             setResentEmail("Email Resent!")
         } catch {
-            setResentEmail("Invalid Verification Code"); 
+             setResentEmail("Error sending email."); 
         }
         
     }

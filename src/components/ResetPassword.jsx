@@ -46,7 +46,7 @@ const ResetPassword = () => {
                 <input
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
                     placeholder="Enter new password..."
                     value={data.password}
                     onChange={handleChange}

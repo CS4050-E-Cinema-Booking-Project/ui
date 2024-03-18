@@ -34,7 +34,7 @@ const AdminUser = () => {
           <tbody>
             {users.map((user) => (
               <tr key={user.id}>
-                <td><UserBox id={user.id} name={user.firstName} email={user.email} role={user.userStatus}/> </td>
+                <td><UserBox id={user.id} name={user.firstName} email={user.email} role={user.userType}/> </td>
               </tr>
             ))}
           </tbody>

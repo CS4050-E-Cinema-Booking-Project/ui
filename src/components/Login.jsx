@@ -45,7 +45,6 @@ const Login = ({setAuthenticated}) => {
         }
         setAuthenticated(true);
         navigate("/");
-        debugger;
       } else {
         setError("Invalid email or password"); 
       }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate,useParams,useLocation } from "react-router-dom";
 import '../style/ChangePassword.css'
 import axios from "axios";
 
@@ -8,33 +8,28 @@ const ChangePassword = () => {
 
     const navigate = useNavigate();
 
-    const [data, setData] = useState({ password: "", confirm: "" });
+    const {state} = useLocation();
+    const user = state.user;
+    const [oldPassword, setOldPassword] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [newConfirmPassword, setNewConfirmPassword] = useState("");
+
     const [error, setError] = useState("");
-    const {id} = useParams();
 
     const submitHandler = async (event) => {
         event.preventDefault();
-        if (data.password !== data.confirm) {
-            setError("Passwords do not match");
+        if (newPassword !== newConfirmPassword) {
+            setError("Passwords do not match.");
+        } else if (user.password != oldPassword){
+            setError("Incorrect Password.");
         } else {
-            const url = "http://localhost:8000/users/";
-            const { data: users } = await axios.get(url); // Fetch all users from the server
-            const user = users.find(user => user.id == id);
-            const url2 = `http://localhost:8000/users/${user.id}`;
-            user.password = data.password;
-            user.confirmPassword = data.confirm
-            await axios.put(url2, user)
-
-            console.log(user)
+            const url = `http://localhost:8000/users/${user.id}`;
+            user.password = newPassword;
+            user.confirmPassword = newConfirmPassword
+            await axios.put(url, user)
             setError("Password Reset!");
             navigate("/");
         }
-    }
-
-    const handleChange = ({ currentTarget: input }) => {
-        const {name, value} = input;
-        setData({ ...data, [name]: value });
-        setError("");
     }
 
     return (
@@ -43,12 +38,12 @@ const ChangePassword = () => {
                 <label className="forgot-password-title">Change Password</label>
                 <label className="forgot-password-email-title">Old Password</label>
                 <input
-                    id="password"
-                    name="password"
+                    id="old-password"
+                    name="old-password"
                     type="text"
-                    placeholder="Enter new password..."
-                    value={data.password}
-                    onChange={handleChange}
+                    placeholder="Enter old password..."
+                    value={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
                 />
                 <label className="forgot-password-email-title">New Password</label>
                 <input
@@ -56,8 +51,8 @@ const ChangePassword = () => {
                     name="password"
                     type="text"
                     placeholder="Enter new password..."
-                    value={data.password}
-                    onChange={handleChange}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
                 />
                 <label className="forgot-password-email-title">Confirm New Password</label>
                 <input
@@ -65,8 +60,8 @@ const ChangePassword = () => {
                     name="confirm"
                     type="password"
                     placeholder="Confirm new password..."
-                    value={data.confirm}
-                    onChange={handleChange}
+                    value={newConfirmPassword}
+                    onChange={(e) => setNewConfirmPassword(e.target.value)}
                 />
                 {error && <span className="error-message">{error}</span>}
                 <button className="login-form-button" type="submit">Submit</button>

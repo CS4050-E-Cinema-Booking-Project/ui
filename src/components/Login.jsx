@@ -87,7 +87,7 @@ const Login = ({setAuthenticated}) => {
             <span>Remember me</span>
           </label>
           <p className="error-message">{error}</p>
-          <Link to="/change-password" className="change-password-button">Change Password</Link>
+          <Link to="/change-password-intro" className="change-password-button">Change Password</Link>
           <Link to="/forgot-password" className="forgot-password-button">Forgot Password?</Link>
           <button className="login-form-button" type="submit">Login</button>
         </form>

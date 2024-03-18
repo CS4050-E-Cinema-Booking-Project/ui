@@ -21,6 +21,7 @@ import CheckoutConfirm from "./components/CheckoutConfirm";
 import PurchaseTickets from "./components/PurchaseTickets";
 import MovieAboutPage from "./components/MovieAboutPage";
 import OrderSummary from "./components/OrderSummary";
+import ChangePasswordIntro from "./components/ChangePasswordIntro";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} />
+          <Route path="/change-password-intro" element={<ChangePasswordIntro />} />
           <Route path="/change-password" element={<ChangePassword />} />
           <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/reset-password/:id" element={<ResetPassword/>} />

@@ -7,20 +7,23 @@ const EditProfile = () => {
   const location = useLocation();
   const user = location.state;
 
+  const newUser = user;
+
   const updateUser = async () => {
+
+        newUser.firstName = firstName
+        newUser.lastName = lastName
+        newUser.phoneNumber = phoneNumber
+        newUser.email = email
+        newUser.streetAddress = streetAddress
+        newUser.city = city
+        newUser.state = state
+        newUser.zipCode = zipCode
+
       await fetch(`http://localhost:8000/users/${user.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          phoneNumber: phoneNumber,
-          email: email,
-          streetAddress: streetAddress,
-          city: city,
-          state: state,
-          zipCode: zipCode
-        })
+        body: JSON.stringify(newUser)
       })
     }
 

@@ -38,7 +38,7 @@ const Signup = () => {
             email: enteredEmail,
             password: enteredPassword,
             confirmPassword: enteredConfirmPassword,
-            promotionOptIn: promotionOptIn,
+            // promotionOptIn: promotionOptIn,
             userCode: ''
         };
         if (enteredFirstName === undefined || enteredFirstName.length < 1) {

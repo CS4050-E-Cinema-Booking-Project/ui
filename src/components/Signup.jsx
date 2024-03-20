@@ -33,6 +33,8 @@ const Signup = () => {
     const [paymentState, setPaymentState] = useState('');
     const [paymentZipCode, setPaymentZipCode] = useState('');
 
+    const [numberInput, setNumberInput] = useState('')
+
     const submitHandler = async (event) => {
 
         var signupComplete = true;
@@ -145,9 +147,6 @@ const Signup = () => {
         setEnteredEmail(event.target.value);
     }
 
-    const phoneNumberChangeHandler = (event) => {
-        setEnteredPhoneNumber(event.target.value);
-    }
 
     const passwordChangeHandler = (event) => {
         setEnteredPassword(event.target.value);
@@ -160,6 +159,12 @@ const Signup = () => {
     const promotionOptInChangeHandler = (event) => {
         setPromotionOptIn(event.target.checked);
     }
+
+    const valueCheck = (inputValue, setStateFunction, pattern) => {
+      if (pattern.test(inputValue) || inputValue === '') {
+        setStateFunction(inputValue);
+      }
+    };
 
     return(
         <div className="signup-form">
@@ -188,8 +193,8 @@ const Signup = () => {
             id="phone-number"
             type="tel"
             value = {enteredPhoneNumber}
-            onChange = {phoneNumberChangeHandler}
-          />
+            onChange={(e) => valueCheck(e.target.value, setEnteredPhoneNumber, /^[0-9 ()-]+$/)}
+            />
           <label>Email</label>
           <p className="hiddenField" id="emailP">Field Required</p>
           <p className="hiddenField" id="emailExists">An Account with this email already exists.</p>
@@ -245,7 +250,7 @@ const Signup = () => {
             <div>
               <div className="name-card">
                 <label className="name-title">Postal/Zip Code</label>
-                <input id='zipCode' className="name-form" type="text" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
+                <input id='zipCode' className="name-form" type="text" value={zipCode}   onChange={(e) => valueCheck(e.target.value, setZipCode, /^[0-9 ()-]+$/)}/>
               </div>
             </div>
           </form>
@@ -257,17 +262,17 @@ const Signup = () => {
             <div>
               <div className="settings-card">
                 <label className="settings-title">Card Number</label>
-                <input id='cardNumber' className="settings-form" type="text" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
+                <input id='cardNumber' className="settings-form" type="text" value={cardNumber}   onChange={(e) => valueCheck(e.target.value, setCardNumber, /^[0-9 ()-]+$/)}/>
               </div>
             </div>
             <div>
               <div className="name-card">
                 <label className="name-title">CVC</label>
-                <input id='cvc' className="name-form" type="text" value={cvc} onChange={(e) => setCVC(e.target.value)} />
+                <input id='cvc' className="name-form" type="text" value={cvc}   onChange={(e) => valueCheck(e.target.value, setCVC, /^[0-9 ()-]+$/)}/>
               </div>
               <div className="name-card">
                 <label className="name-title">Card Expiration</label>
-                <input id='cardExpiration' placeholder="MM/YY" className="name-form" type="text" value={cardExpiration} onChange={(e) => setCardExpiration(e.target.value)} />
+                <input id='cardExpiration' placeholder="MM/YY" className="name-form" type="text" value={cardExpiration} onChange={(e) => valueCheck(e.target.value, setCardExpiration, /^[0-9 ()-]+$/)}/>
               </div>
             </div>
             <div>
@@ -303,7 +308,7 @@ const Signup = () => {
             <div>
               <div className="name-card">
                 <label className="name-title">Postal/Zip Code</label>
-                <input id='paymentZipCode' className="name-form" type="text" value={paymentZipCode} onChange={(e) => setPaymentZipCode(e.target.value)} />
+                <input id='paymentZipCode' className="name-form" type="text" value={paymentZipCode}   onChange={(e) => valueCheck(e.target.value, setPaymentZipCode, /^[0-9 ()-]+$/)}/>
               </div>
             </div>
           </form>
